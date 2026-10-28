@@ -2,14 +2,18 @@
 require('dotenv').config();
 const db = require('./database/db');
 
-// Importamos la librería de Express
+// Importamos las librerías de Express y CORS
 const express = require('express');
+const cors = require('cors');
 
 // Inicializamos la aplicación de Express
 const app = express();
 
 // Configuramos la app para que pueda entender los datos en formato JSON
 app.use(express.json());
+
+// Habilitamos CORS globalmente para permitir que el frontend se conecte
+app.use(cors());
 
 // Definimos el puerto en el que va a correr el servidor jalándolo del archivo .env
 const PORT = process.env.PORT || 3000;
@@ -40,7 +44,7 @@ app.get('/api/productos/:id', async (req, res) => {
             return res.status(404).json({ mensaje: "Producto no encontrado" });
         }
         
-        res.json(filas[0]);
+        res.json(filas);
     } catch (error) {
         console.error("Error en GET /api/productos/:id:", error.message);
         res.status(500).json({ mensaje: "Error interno del servidor al buscar el producto" });

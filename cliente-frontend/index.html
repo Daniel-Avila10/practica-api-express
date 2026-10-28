@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control de Productos</title>
+    <!-- Importamos Chart.js mediante su CDN como solicita el manual -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f7f6; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        .grafica-box { margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dashboard de Productos</h1>
+        
+        <!-- Contenedor solicitado para mostrar los registros en una tabla -->
+        <div id="tabla-datos">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-productos">
+                    <!-- Los datos de la base de datos se inyectarán aquí con JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Canvas solicitado para renderizar el gráfico -->
+        <div class="grafica-box">
+            <canvas id="miGrafica"></canvas>
+        </div>
+    </div>
+
+    <!-- Vinculamos el archivo lógico que crearemos en el siguiente paso -->
+    <script src="app.js"></script>
+</body>
+</html>
